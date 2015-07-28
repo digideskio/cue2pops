@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+[[ -z $IMAGE ]] && IMAGE="mauchede/cue2pops"
+[[ -z $TAG ]] && TAG="2.0"
+
+docker run \
+    $(env | cut -d= -f1 | awk '{print "-e", $1}') \
+    --rm \
+    -v /etc/group:/etc/group:ro \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v $HOME:$HOME \
+    -v "$PWD:$PWD" \
+    -v /tmp:/tmp \
+    -u $USER \
+    -w "$PWD" \
+    $IMAGE:$TAG "$@"
