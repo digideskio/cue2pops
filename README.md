@@ -10,4 +10,3 @@ Copy the file `bin/cue2pops` into your executable folder (like `/usr/local/bin` 
 cd /path/to/ps1/game
 cue2pops IMAGE.BIN IMAGE0.VCD
 ``` 
-
