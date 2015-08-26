@@ -3,7 +3,8 @@ MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
 COPY CUE2POPS_v2.0.zip /tmp/CUE2POPS_v2.0.zip
 
-RUN apt-get update \
+RUN set -x \
+    && apt-get update \
     && apt-get install -y --no-install-recommends unzip \
     && unzip /tmp/CUE2POPS_v2.0.zip -d /opt \
     && mv /opt/CUE2POPS_v2.0 /opt/cue2pops \
