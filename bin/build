@@ -5,4 +5,5 @@ cd "`dirname "$0"`/../src"
 [[ -z $IMAGE ]] && IMAGE="mauchede/cue2pops"
 [[ -z $TAG ]] && TAG="2.0"
 
+docker rmi $IMAGE:$TAG || :
 docker build -t $IMAGE:$TAG .
